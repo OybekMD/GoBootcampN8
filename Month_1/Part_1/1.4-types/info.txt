@@ -1,0 +1,38 @@
+Go is statically typed programming language
+This means that variable always have a specific type ant thet type cannot be changed
+
+
+
+Numbers >>>
+We have some kind of intenger data types we will be able to see here.
+
+uint8	Беззнаковые 8-битные целые числа            от 0 до 255
+uint16	Беззнаковые 16-битные целые числа 	от 0 до 65535
+uint32	Беззнаковые 32-битные целые числа 	от 0 до 4294967295
+uint64	Беззнаковые 64-битные целые числа 	от 0 до 18446744073709551615
+int8	Знаковые 8-битные целые числа 	    от -128 до 127
+int16	Знаковые 16-битные целые числа 	    от -32768 до 32767
+int32	Знаковые 32-битные целые числа 	    от -2147483648 до 2147483647
+int64	Знаковые 64-битные целые числа 	    от -9223372036854775808 до 9223372036854775807
+
+
+Floating point numbers >>>
+what is float ?
+Floating point numbers are imprecise. There are times when a number cannot be imagined at all. For example, the result of calculating 1.01 - 0.99 would be 0.020000000000000018 - a number very close to the expected number, but not the same.
+
+Like integers, floating point numbers have a specific size (32 bits or 64 bits). Using a larger size increases precision (how many digits we can use to calculate)
+
+In addition to numbers, there are several other values such as: (NaN, for things like 0/0) and positive and negative infinity (+∞ and −∞).
+
+
+
+String>>>
+String for text but they are collection of bytes for example "ABC" -> 65 66 67
+what is 65 66 67 ? they are codes of ASCHII table. ASCHII table is collection of all the symbols 
+
+logical types>>
+or ||
+and &&
+not !
+
+why are they need us for example we are creating some program we usually us these logical types for solve our problem

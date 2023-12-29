@@ -1,0 +1,47 @@
+what is Formatted output.
+
+Usualy we use Formatted output for fmt package's printf it formates our output.
+here some exemple for printf
+
+var a rune = 'Ы'
+fmt.Printf("%q", a)
+// вывод: 'Ы'
+
+
+Each specifier represents a specific data type:
+
+%t: to output boolean values (true or false)
+
+%b: to print integers in binary
+
+%c: to output characters represented by numeric code
+
+%d: for outputting integers in decimal system
+
+%o: for outputting integers in octal
+
+%q: to print characters in single quotes
+
+%x: For output of integers in hexadecimal, the alphabetic characters of the number are lowercase a-f
+
+%X: For output of integers in hexadecimal, the alphabetic characters of the number are upper case A-F
+
+%U: to output Unicode characters, for example U+1234
+
+%e: to display floating point numbers in scientific notation, for example -1.234456e+78
+
+%E: same as %e but in upper case, for example -1.234456E+78
+
+%f: to output floating point numbers, e.g. 123.456
+
+%F: same as %f
+
+%g %e for huge exponents, %f otherwise
+
+%G %E for huge exponents, %F otherwise
+
+%s: to output a string
+
+%p: to display the value of the pointer - the address in hexadecimal notation (we'll cover pointers in the next lessons)
+
+%T to display the variable type

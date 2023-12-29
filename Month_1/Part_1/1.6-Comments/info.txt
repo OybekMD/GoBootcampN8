@@ -1,0 +1,7 @@
+Why we need comments?
+imagin you have a lot of code and you working with other coders that time other coders also should undersand your code how do you explain them ?
+that time comments come to us to save our time and words we should just write comments for exemple // bla bla bla
+it's not take a lot of time it demant just simple teach and write why are you using that and why is this need us? if you should answear these questions just write comments
+it save your time and your don't have to explain other coders maybe it will be useful to you also becouse we are people and we are forgetable 
+we don't know after month or year that why.
+overall comments are necessary.

@@ -1,0 +1,12 @@
+what is Conditional Expressions ?
+
+so if we're gonna answear this question before we should know little bit about comparing two variable 
+for exemple we have 2 variable and we gonna compare them about a and b ; 
+their value a = 1 , b = 5 
+which one is greater a or b ?
+a < b || true 
+because 1<5 it's true 5 is greater than 1 that is why its true
+
+a > b || false  || 5 is greater that 1 that is why its false
+a != b || true || because they are not have same value that is why false
+a == b || false || because they are not have same value for exemple when they have been same value it gives true

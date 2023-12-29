@@ -1,0 +1,35 @@
+what is if Statements
+The simplest form, checking a single condition and executing code if it's true.
+Use syntax like this:
+
+
+if age >= 18 {
+  fmt.Println("You are eligible to vote!")
+}
+
+
+what is if-else Statements
+Provide two sets of code, one for when the condition is true and one for when it's false.
+Useful for handling opposite scenarios:
+
+
+if score > 80 {
+  fmt.Println("Congratulations! You passed with an A!")
+} else {
+  fmt.Println("Keep working hard! You can do better next time.")
+}
+
+
+what is switch Statements
+
+More complex, checking a single value against multiple pre-defined cases.
+Useful for handling different choices or states:
+
+switch day := time.Now().Weekday() {
+case wednesday, thursday:
+  fmt.Println("Time for a mid-week boost!")
+case saturday, sunday:
+  fmt.Println("Enjoy your weekend!")
+default:
+  fmt.Println("Stay focused! Workday ahead.")
+}

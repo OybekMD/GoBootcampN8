@@ -1,0 +1,40 @@
+what is array ?
+
+The concept of an array. Declaring and initializing an array
+
+An array is a sequence of elements of the same type of fixed length. An array is declared as follows:
+
+var a [3]int
+fmt.Println(a) // [0 0 0]
+
+
+When declaring an array, its length is indicated in square brackets, which, together with the type of the elements, determines the type of the array itself, i.e. [3]int cannot simply interact with [5]int (arrays of different lengths belong to different types, regardless of the fact that they store values of the same type), just as int64 and int32 cannot interact without casting.
+As we saw in the example above, the declared array was initialized with zero values (0 for int) when declared. This behavior is not standard; in particular, in the C / C++ languages, the declared array is not filled with zero values.
+
+Simultaneously with declaring an array, we can set the values of its elements (initialize it):
+
+var a [3]int = [3]int{1, 2, 3}
+b := [3]int{1, 2, 3}
+c := [...]int{1, 2, 3}
+d := [3]int{1: 12}
+
+fmt.Println(a) // [1 2 3]
+fmt.Println(b) // [1 2 3]
+fmt.Println(c) // [1 2 3]
+fmt.Println(d) // [0 12 0]
+There should be no difficulty in understanding the first and second examples - you have already encountered this. Let's take a closer look at options three and four (arrays c and d).
+
+Instead of explicitly specifying the length of the array, we can specify an ellipsis character (...) in square brackets, then the length of the array will be determined by Go depending on the number of values ​​specified during initialization. Although this option is valid, it is not considered idiomatic for Go and is not recommended for use in the documentation.
+
+The fourth method of initialization allows you to explicitly specify the value that should be assigned to an array element with a specific index. In this case, the indices may appear in any order, and some of them may be omitted; as before, unspecified values receive a null element type value.
+
+Array comparison
+Since we can compare all the elements of an array sequentially, we can compare the arrays themselves:
+
+a := [3]int{1, 2, 3}
+b := [3]int{1, 2, 3}
+c := [3]int{3, 2, 1}
+
+fmt.Println(a == b) // true
+fmt.Println(a == c) // false
+But it must be taken into account that only arrays of the same type are comparable (arrays of the same length, containing elements of the same type).

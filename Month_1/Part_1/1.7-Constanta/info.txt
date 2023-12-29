@@ -1,0 +1,9 @@
+What is Constanta ?
+Constanta is unchangeable value
+we can make constanta like this 
+const pi float64 = 3.1415
+but we'll not be able to change this const value 
+
+const pi float64 = 3.1415
+pi = 2.7182   // error
+

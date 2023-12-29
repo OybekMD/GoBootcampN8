@@ -1,0 +1,11 @@
+1.Go is statically typed, Compiled programming langugae designed at Google by Robert Griesemer, Rob Pike and Ken Thompson.
+2.Go's second most command or famouse name is Golang.
+3.It's has got simmilar syntax like C programming langugae but In my opinion Go likes Python and C I mean Some syntax like Python but some like C
+    maybe that is why Go is fast and easy to understan sythax codes
+4.Go was starting create in 2007. It announced in 2009 10'th November. First reliase in 2012 March
+5.Go is open source and it's free for use
+6.Go is Cross platform it means when we write somecode in Windows it will works in Linux, Windows, MacOS and other OS
+7.Go is fast and it's not difficult learn and understan codes
+8.Go is most useful for Big projects and a lot of big tech companies use Go for exemple Google, Netfilx, Drop box, Uber ...
+
+

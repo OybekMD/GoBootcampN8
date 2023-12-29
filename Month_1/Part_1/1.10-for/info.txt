@@ -1,0 +1,22 @@
+what is for ?
+"For" in Go is the single loop control structure used for iterating a block of code a specific number of times or based on a condition.
+
+Here's a breakdown of the different forms of the "for" loop in Go:
+
+1. Basic For Loop:
+This form executes the loop a specific number of times defined by the initialization, condition, and post-statement:
+
+for i := 0; i < 5; i++ {
+  // Code to be executed 5 times
+  fmt.Println("Iteration", i)
+}
+
+2. For Loop with Initializer and Condition:
+
+This form omits the post-statement, allowing you to update the iteration variable inside the loop body:
+
+for i := 0; i < 10; {
+  i++
+  // Code to be executed based on i
+  fmt.Println(i)
+}
