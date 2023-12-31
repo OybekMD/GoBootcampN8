@@ -1,0 +1,66 @@
+we have learned about string we know string is type of golang and we need to know some thing in string 
+we can use a lot of path in go for exemple 
+a := "Hullos"
+Actually what is Strings.
+
+String literals can be created using double quotes "Hello World" or using backticks `Hello World`. 
+The difference between them is that double-quoted strings allow the use of special escape character sequences. 
+For example, \n (line break) or \t (tab character).
+
+A string is an immutable sequence of bytes. A number of conclusions follow from this:
+
+the operations applicable to arrays and slices are applicable to a string;
+to change a line, you need to create a new line;
+we can iterate over a string as we would over any sequence, but when we iterate over a string, 
+we will be iterating over the bytes that make up the string, not over the characters;
+
+we can define a substring in a string.
+func ExampleString() {
+// Create a string literal s whose value is "This is a string."
+// The line consists of 10 characters.
+var s string = "This is a string"
+
+// However, the length of the string len(s) will be 19 bytes, because Cyrillic characters used
+// take up 2 bytes, and space takes up 1 byte.
+fmt.Printf("String length: %d bytes\n", len(s))
+
+// Let's see how to take a substring
+fmt.Printf("Print only the second word in quotes: \"%v\"\n", s[7:])
+
+/*
+Let's try to change something in the line:
+s[3] = 12
+Compilation error: cannot assign to s[3] because strings are immutable sequences.
+*/
+
+// "Change the line" by creating a new one
+s = s + "Newline"
+fmt.Printf("%v\n", s)
+
+// Now let's iterate through this line
+for _, b := range s {
+    fmt.Printf("%v ", b)
+}
+fmt.Print("\n")
+
+//Output:
+// String length: 19 bytes
+// Print only the second word in quotes: "string"
+// This is a line New line
+// 1069 1090 1086 32 1089 1090 1088 1086 1082 1072 32 1053 1086 1074 1072 1103 32 1089 1090 1088 1086 1082 1072
+
+}
+
+In conclusion, let's say that strings support checking for equality and inequality, but <> checks with strings will no longer give the result we need, because Go will compare bytes, not characters, i.e. the result for us may not be what we expect (it is not the length of the strings that is compared):
+
+func ExampleEqualString() {
+    fmt.Printf("Comparison for equality of strings \"string1\" and \"string2\": %v\n", "string1" == "string2")
+    fmt.Printf("Comparison for inequality of strings \"line1\" and \"line2\": %v\n", "line1" != "line2")
+
+    fmt.Printf("\"Line1\" > \"Line2\": %v", "Line1" > "Line2")
+
+    //Output:
+    // Comparison for equality of strings "string1" and "string2": false
+    // Comparison for inequality of strings "string1" and "string2": true
+    // "Line1" > "Line2": false
+}

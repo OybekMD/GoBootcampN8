@@ -1,0 +1,42 @@
+what is package ?
+
+All Go code is organized into packages. Packages provide a convenient organization for dividing code into separate parts or modules. Modularity allows you to define a package with the desired functionality once and then use it repeatedly in different programs.
+
+The package code is located in one or more files with the extension go. To define a package, use the package keyword. For example:
+
+package main
+import "fmt"
+func main() {
+     fmt.Println("Hello Go")
+}
+
+In this case, the package is called main. The package definition must go at the beginning of the file.
+
+There are two types of packages: executable and reusable. To create executable files, the package must be named main. All other packages are not executable. In this case, the main package must contain the main function, which is the entry point into the application.
+
+Import packages
+If there are already ready-made packages with the functionality we need that we want to use, then to use them we can import them into the program using the import statement. For example, the example above leverages the functionality of printing a message to the console using the Println function, which is defined in the fmt package. Accordingly, to use this function, you need to import the fmt package:
+
+import "fmt"
+Often programs connect several external packages at once. In this case, you can import each package sequentially:
+
+package main
+import "fmt"
+import "math"
+func main() {
+     fmt.Println(math.Sqrt(16)) // 4
+}
+
+In this case, the built-in math package is used, which contains the Sqrt() function, which returns the square root of a number.
+
+Or, to shorten the definition of importing packages, you can enclose all packages in parentheses:
+
+package main
+import (
+     "fmt"
+     "math"
+)
+func main() {
+     
+     fmt.Println(math.Sqrt(16))
+}

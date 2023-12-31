@@ -1,0 +1,27 @@
+There is no point in talking about pointers if the reader does not have an understanding of what “computer memory” is.
+This can be fixed.
+
+The explanation in the previous version of the lesson was confusing to many students.
+We decided that using videos from open sources is not a shame.
+
+Now that we have an idea of RAM, and variables are the names of memory cells, we need to understand pointers.
+A pointer is a value that points to the address of another variable. Let's look at this with an example:
+
+func main() {
+         a := 200
+         b := &a
+         *b++
+         fmt.Println(a)
+}
+
+In this example, we initialize variable a and the variable b that refers to it, we don't know where it is, but the compiler will take care of it.
+The & operator (taking an address) means that the variable b is not written to the value of variable a, but its address in memory. The variable b here is a pointer.
+
+* is a sign of a pointer, that is, you are not working with the variable b, but with the variable to which the pointer refers
+
+Otherwise you can write it like this:
+a := 200
+var b *int = &a
+
+*int - means the variable points to another variable of type int
+The third line is the concentration of the entire topic. In it we increase the value of variable a, because variable b refers to the address of variable a.

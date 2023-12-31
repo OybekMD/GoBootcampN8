@@ -1,0 +1,49 @@
+While it is entirely possible to write Go programs using only the built-in types, at some point this will become very tedious. 
+Here is an example - a program that interacts with shapes:
+
+package main
+import("fmt"; "math")
+
+func distance(x1, y1, x2, y2 float64) float64 {
+     a := x2 - x1
+     b := y2 - y1
+     return math.Sqrt(a*a + b*b)
+}
+
+func rectangleArea(x1, y1, x2, y2 float64) float64 {
+     l := distance(x1, y1, x1, y2)
+     w := distance(x1, y1, x2, y1)
+     return l * w
+}
+
+func circleArea(x, y, r float64) float64 {
+     return math.Pi * r * r
+}
+
+func main() {
+     var rx1, ry1 float64 = 0, 0
+     var rx2, ry2 float64 = 10, 10
+     var cx, cy, cr float64 = 0, 0, 5
+
+     fmt.Println(rectangleArea(rx1, ry1, rx2, ry2))
+     fmt.Println(circleArea(cx, cy, cr))
+}
+
+Keeping track of all the variables makes it difficult for us to understand what the program is doing and is sure to lead to errors.
+
+Structures
+With the help of structures this program can be made much better.
+A structure is a type that contains named fields. For example, we can represent a circle like this:
+
+type Circle struct {
+     x float64
+     float64
+     r float64
+}
+
+The type keyword introduces a new type. This is followed by the name of the new type, Circle, and the keyword struct, which says that we are defining a structure and a list of fields inside the curly braces.
+Each field has a name and a type. As with functions, we can combine fields of the same type:
+
+type Circle struct {
+     x, y, r float64
+}

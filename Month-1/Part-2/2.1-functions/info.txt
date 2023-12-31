@@ -1,0 +1,36 @@
+what is functions
+A function represents a block of statements that together perform a specific task. Using functions, you can repeatedly call its block of statements as a whole in other parts of the program.
+
+The function is declared as follows:
+
+func function_name (parameter_list) (return_types) {
+     executable_statements
+}
+ 
+
+Example function:
+
+
+func main() {
+  hello()
+}
+
+func hello() {
+     fmt.Println("Hello World")
+}
+
+Important! The opening curly brace must be on the same line as the function declaration, otherwise you will get an error. This is done for a uniform code style.
+
+As a reminder, short variable declarations (a := 5) only work inside functions.
+
+ 
+
+Utilities: If you have Go installed on your computer, you can use the command line to study the documentation for a particular standard function. For example, if we want to know details about the Println() function we can enter the command:
+
+go doc fmt.Println
+or
+
+go doc fmt Println
+If you want to learn more about how the doc command works, you can enter the command:
+
+go help doc 

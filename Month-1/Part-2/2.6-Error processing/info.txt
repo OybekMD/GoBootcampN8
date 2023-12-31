@@ -1,0 +1,20 @@
+Error processing
+Good code should respond correctly to unforeseen circumstances, such as invalid user input, network connections being lost, or disk failures. Error handling is the process of detecting when your program is in an unexpected state, and taking steps to record diagnostic information that will be useful for later debugging.
+
+Unlike other programming languages, where developers need to handle errors using special syntax (try catch/try except), errors in Go are values of type error, returned by functions just like any other value. To handle errors in Go, we must check for errors that functions may return, decide whether an error exists, and take appropriate measures to protect data and inform users or operators that an error has occurred.
+
+The simplest processing is to check the error for emptiness. Many methods and functions in GO, when called, return not only the desired result, but also an error. For example: we have a function that divides a number by another number and an input variable.
+
+package main
+
+import "fmt"
+
+func divide(a int, b int) int {
+return a/b
+}
+
+func main() {
+var input int
+fmt.Scan(&input)
+fmt.Println(divide(input, 5)) //Print the result
+}
