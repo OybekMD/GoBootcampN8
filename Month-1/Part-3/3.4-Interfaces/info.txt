@@ -1,0 +1,26 @@
+What is Interfaces?
+Up to this point, we have mainly dealt with very specific types: primes - numbers, strings, bytes, composites - arrays and slices, structures and mappings.
+Interfaces are a new abstract data type in Go.
+
+An interface is a contract that defines the methods that an object that satisfies the interface must have.
+Not very clear? Let's try to cover this topic in such a way that we not only understand the concept of an interface,
+but also learn how to apply this knowledge in practice.
+
+Interface Declaration
+Interfaces, like other types in Go, are declared using the type keyword, followed by the name of the type being declared, followed by the base type (in our case, interface).
+The curly braces indicate the names and descriptions of the methods that an object must have in order to "satisfy" a given interface. 
+The implementation of methods can be completely different; the very presence of a method with an appropriate description (accepted arguments and return values) is important.
+
+Let's see how an interface is declared using the io package of the standard library as an example:
+
+type Reader interface {
+Read(p []byte) (n int, err error)
+}
+
+type Writer interface {
+Write(p []byte) (n int, err error)
+}
+Objects that satisfy the io.Reader interface have a Read method that takes a byte slice (the buffer to be read into) as an argument and returns the number of bytes read and an error message.
+The io.Writer interface does the opposite: its Write method receives a slice of bytes (the buffer from which to read), returns the number of bytes written and an error message.
+
+The interface doesn't define anything else. A type implements an interface by implementing all of its methods.

@@ -1,0 +1,77 @@
+Time
+The standard library's time module provides a number of primitives for working with time.
+
+type Time
+Creating a Time structure
+The first primitive is the Time structure - a specific date and time. A number of functions allow us to create this structure with a specific value:
+
+package main
+
+import (
+"fmt"
+"time"
+)
+
+func main() {
+// func Now() Time
+// returns current date and time
+now := time.Now()
+
+// func Date(year int, month Month, day, hour, min, sec, nsec int, loc *Location) Time
+// returns the date and time in accordance with the specified parameters: year, month, day, time, etc.
+currentTime := time.Date(
+2020, // year
+time.May, // month
+15, // day
+10, // hours
+13, // minutes
+12, // seconds
+45, // nanoseconds
+time.UTC, // time zone
+)
+
+// func Unix(sec int64, nsec int64) Time
+// returns the date and time according to the given parameters: seconds and nanoseconds elapsed since the beginning of the Unix epoch - 01/01/1970.
+// https://ru.wikipedia.org/wiki/Unix-%D0%B2%D1%80%D0%B5%D0%BC%D1%8F
+unixTime := time.Unix(
+150000, // seconds
+1, // nanoseconds
+)
+
+fmt.Println(now.Format("02-01-2006 15:04:05")) // 15-05-2020 09:58:16
+fmt.Println(currentTime.Format("02-01-2006 15:04:05")) // 15-05-2020 10:13:12
+fmt.Println(unixTime.Format("02-01-2006 15:04:05")) // 02-01-1970 22:40:00
+}
+I think that you should reasonably have a question - what kind of Format method was used to print the time values, and why was such a strange argument passed to it? Nothing strange, now we will look at this issue in more detail.
+
+Converting strings to a Time structure
+In practice, very often the task arises of converting date and time data from a string form in order to later gain access to methods for working with time. However, there are a lot of options for string representation of date and time, in some cases we are only interested in the date, and in others only in the time. How do you explain to Go what's what in a line? To do this, we give Go a template against which the target string is compared.
+
+Here's the basis for the template: "Mon Jan 2 15:04:05 MST 2006": Monday, January 2, 2006 15:04:05 MST. This may be difficult the first time, but in the future you will remember this basic date and time.
+
+Two functions are responsible for parsing data from strings:
+
+// func Parse(layout, value string) (Time, error)
+// parses date and time in string representation
+firstTime, err := time.Parse("2006/01/02 15-04", "2020/05/15 17-45")
+if err != nil {
+panic(err)
+}
+
+// LoadLocation finds the time zone in the IANA directory
+// https://www.iana.org/time-zones
+loc, err := time.LoadLocation("Asia/Yekaterinburg")
+if err != nil {
+panic(err)
+}
+
+// func ParseInLocation(layout, value string, loc *Location) (Time, error)
+// parses date and time in string representation with a separate indication of the time zone
+secondTime, err := time.ParseInLocation("Jan 2 06 03:04:05pm", "May 15 20 05:45:10pm", loc)
+if err != nil {
+panic(err)
+}
+
+fmt.Println(firstTime.Format("02-01-2006 15:04:05")) // 15-05-2020 17:45:00
+fmt.Println(secondTime.Format("02-01-2006 15:04:05")) // 15-05-2020 17:45:10
+We see the same Format method again, only now its argument should be much more clear - Format returns us a string representation of the time in accordance with the specified template.

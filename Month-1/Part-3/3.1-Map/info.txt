@@ -1,0 +1,24 @@
+What is map?
+No no you have done mistake it's not like real map thing!
+Map is a data structure a unsorted collection of key-value when we want add value we should give to it key too
+Map in Go is a hash table and it's type is written map[K]{V} K = key , V = Value type of its keys and values.
+All keys in a given mapping are of the same type, just as all values are of the same type, but the type of the of the keys doesn't
+have to be the same type of the values.
+The key should be compairable using the == operator so that the mapping can check whether a given key is equal to one of the keys in it.
+
+
+var users map[string]int
+// string - key, int - value
+
+// using the built-in make function:
+m1 := make(map[int]int)
+
+// by using a mapping literal:
+m2 := map[int]int{
+    // Key:value pairs are specified as needed
+    12:    2,
+    1:     5,
+}
+
+fmt.Println(m1) // map[]
+fmt.Println(m2) // map[1:5 12:2]

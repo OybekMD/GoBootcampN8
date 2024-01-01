@@ -1,0 +1,38 @@
+Functions as First Class Objects
+In Go, functions are first-class objects, which means that in this programming language, a function can be passed as an argument to another function, or the function can be returned as a value.
+Let's consider passing a function as an argument to another function using the example of Map from the strings package we are already familiar with. This function looks like this:
+
+func Map(mapping func(rune) rune, s string) string
+The Map function receives as its first argument a function of the form func (rune) rune, which performs some actions with a Unicode character and returns a Unicode character as a result.
+From the description of this function it follows that the function passed as an argument will be applied to each character of the string passed as the second argument to the Map function, the resulting string will be returned as the result.
+
+Let's create this function:
+
+func invert(r rune) rune {
+// If the letter is lowercase, then it is returned uppercase
+if unicode.IsLower(r) {
+return unicode.ToUpper(r)
+}
+// Otherwise it returns lowercase
+return unicode.ToLower(r)
+}
+Now let's use it:
+
+func ExampleFirstClassFunctionArgument() {
+src := "aBcDeFg"
+test := "AbCdEfG"
+
+// Note that the parentheses after the function name are only used when calling it
+src = strings.Map(invert, src)
+
+fmt.Printf("Inverted string: %s. Result: %v.\n", src, src == test)
+
+//Output:
+// Inverted string: AbCdEfG. Result: true.
+}
+Similarly, we can return a function as a value:
+ 
+
+func returnFunction() func(rune) rune {
+return invert
+}

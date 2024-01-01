@@ -1,0 +1,9 @@
+What is Data type conversion ?
+on our journey as a developer we encounter tasks that cannot be done without type conversion.
+Convertions one type can have positive impact on both the ease of development and the performance of the application itself.
+Or maybe you just need to call a function that only accepts a certain data type.
+
+Let's talk about Golang in terms of types. It's a statically typed language;
+to put it simply, data types in Go (and other statically typed languages) are associated with a variable, not its value. 
+You have already learned that an int variable can only store integers. 
+But Go allows you to convert between integer types, floating point numbers, strings, bytes, and so on.

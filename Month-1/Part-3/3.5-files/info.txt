@@ -1,0 +1,5 @@
+Working with files
+Go provides many methods for working with operating system resources. 
+The choice of method often depends on the problem to be solved. 
+It is, firstly, very difficult to reveal all possible methods, and, secondly, this lesson would be very long. As a result, in this lesson we will try to outline the main features and packages that implement them. 
+If you want to get more information about working with files, then refer to the documentation yourself. And remember, learning is best practice, so experiment with files locally.

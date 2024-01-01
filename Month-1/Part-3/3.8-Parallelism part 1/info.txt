@@ -1,0 +1,7 @@
+Parallelism, multithreading and everything connected with it is a rather voluminous and complex topic.
+Before moving on to concurrency in Go, you need to understand what threads and multithreading in general are.
+Therefore, if this is your first time encountering this, we recommend that you first understand the basics of multithreading.
+For example, read this article.
+
+Unfortunately, it is difficult to come up with parallelism programming tasks in stepik due to the fact that this topic is difficult to check through input/output.
+Practice on your own and try if you doubt anything. We will try to improve the lesson and add tasks if necessary (as elsewhere).

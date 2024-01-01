@@ -1,0 +1,33 @@
+JSON
+Understanding the JSON Format
+JSON (JavaScript Object Notation) is a text-based structured data exchange format based on JavaScript.
+JSON is not the only form available to us to solve this problem: 
+XML, YAML and Google's Protocol Buffers serve a similar purpose, and each has its own niche, but due to its simplicity, readability and universal support, JSON is the most widely used.
+
+JSON is one of two structures:
+a set of key-value pairs;
+an ordered set of values.
+The following can be used as values in JSON:
+
+an object is an unordered set of key-value pairs enclosed in curly braces "{ }". 
+The key is described by a string, with a “:” symbol between it and the value. Key-value pairs are separated by commas;
+An array is an ordered set of values enclosed in square brackets "[ ]". Values are separated by commas;
+number (integer or real);
+literals true, false (boolean) and null;
+line.
+Let's look at an example of data in JSON format:
+
+{
+     "firstName": "Tom",
+     "lastName": "Alonson",
+     "address": {
+         "streetAddress": "Phogtis highway, 101, apt. 101",
+         "city": "Domma",
+         "postalCode": 101101
+     },
+     "phoneNumbers": [
+         "+1 123-1234",
+         "+1 123-4567"
+     ]
+}
+Here the data is a set of key-value pairs, with: firstName and lastName being strings, address being a nested set of key-value pairs, and phoneNumbers being an ordered set of values.

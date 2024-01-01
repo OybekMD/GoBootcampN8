@@ -1,0 +1,43 @@
+In some cases, goroutines may become blocked. This is necessary so that goroutines can synchronize with each other.
+
+Write lock
+A goroutine sending data to a channel blocks until another goroutine reads the data from it. It's simple.
+
+Read lock
+A goroutine receiving data from a channel may be blocked until it receives data into the channel. Similar to write blocking.
+
+It makes no sense for the program to use system resources when idle - this is memory-consuming. To be fully understood, goroutine blocking can be thought of as a transaction between two people: until the buyer pays, the seller will not provide the goods.
+
+Select-case
+By using the select-case construct you can avoid blocking behavior.
+
+package main
+
+import "fmt"
+
+func fibonacci(c, quit chan int) {
+x, y := 0, 1
+for {
+select {
+case c <- x:
+x, y = y, x+y
+case <-quit:
+fmt.Println("quit")
+return
+}
+}
+}
+
+func main() {
+c := make(chan int)
+quit := make(chan int)
+go func() {
+for i := 0; i < 10; i++ {
+fmt.Println(<-c)
+}
+quit <- 0
+}()
+fibonacci(c, quit)
+}
+When you run the code above, you will see the following output in the terminal,
+this happens because the goroutine will read data from the channel if it is there, otherwise the quit block will be executed:
