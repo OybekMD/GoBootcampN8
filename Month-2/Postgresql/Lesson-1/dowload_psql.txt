@@ -1,0 +1,52 @@
+https://dev.to/rainbowhat/postgresql-16-installation-on-ubuntu-2204-51ia
+
+
+
+
+
+Prerequisites
+Ubuntu 22.04
+Root privileges or sudo access
+use sudo su to get into root instead of ubuntu(default user)
+
+Step 1 - Add PostgreSQL Repository
+First, update the package index and install required packages:
+sudo apt update
+sudo apt install gnupg2 wget vim
+Add the PostgreSQL 16 repository:
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+Import the repository signing key:
+curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
+Update the package list:
+sudo apt update
+Step 2 - Install PostgreSQL 16
+Install PostgreSQL 16 and contrib modules:
+sudo apt install postgresql-16 postgresql-contrib-16
+Start and enable PostgreSQL service:
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+Check the version and ensure it's Postgresql 16:
+psql --version
+You should get something like
+
+psql (PostgreSQL) 16.0 (Ubuntu 16.0-1.pgdg22.04+1)
+
+Step 3 - Configure PostgreSQL 16
+Edit postgresql.conf to allow remote connections by changing listen_addresses to *:
+sudo nano /etc/postgresql/16/main/postgresql.conf
+listen_addresses = '*'
+Configure PostgreSQL to use md5 password authentication by editing pg_hba.conf , this is important if you wish to connect remotely e.g. via PGADMIN :
+sudo sed -i '/^host/s/ident/md5/' /etc/postgresql/16/main/pg_hba.conf
+sudo sed -i '/^local/s/peer/trust/' /etc/postgresql/16/main/pg_hba.conf
+echo "host all all 0.0.0.0/0 md5" | sudo tee -a /etc/postgresql/16/main/pg_hba.conf
+Restart PostgreSQL for changes to take effect:
+sudo systemctl restart postgresql
+Allow PostgreSQL port through the firewall:
+sudo ufw allow 5432/tcp
+Step 4 - Connect to PostgreSQL
+Connect as the postgres user:
+sudo -u postgres psql
+Set a password for postgres user:
+ALTER USER postgres PASSWORD 'VeryStronGPassWord@1137';
+Conclusion
+We have successfully installed PostgreSQL 16 on Ubuntu, performed some basic configuration like enabling remote connections, set up password authentication, created a database and users. PostgreSQL is now ready to be used for development or production workloads.
