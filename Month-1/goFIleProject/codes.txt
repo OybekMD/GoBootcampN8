@@ -1,0 +1,74 @@
+package main
+
+import (
+	"bufio"
+	"fmt"
+	enc "goexperience/encryption"
+	"os"
+	"strings"
+
+)
+
+// users
+// password
+// data
+
+func Login(username string, password string) bool {
+	return false
+}
+
+func isUsedUsername(newUsername string) bool {
+	file, err := os.Open("users.txt")
+	if err != nil {
+		fmt.Println("isUseredUsername func file not found!")
+		panic(err)
+	}
+	defer file.Close()
+
+	rd := bufio.NewScanner(file)
+	for rd.Scan() { // возвращает true, пока файл не будет прочитан до конца
+		name := strings.Split(rd.Text(), "*")
+		fmt.Println(name)
+	}
+	return false
+}
+
+func CreateAccount(username string, password string) string {
+	fuser, err := os.Open("users.txt")
+	if err != nil {
+		return "Error create username"
+	}
+	fuser.WriteString(username)
+	defer fuser.Close()
+
+	fpass, err := os.Open("pass.txt")
+	if err != nil {
+		return "Error create password"
+	}
+	pass := enc.PasswordDecode(username) + "*" + enc.PasswordDecode(password)
+	fpass.WriteString(pass)
+	defer fpass.Close()
+	return "Create Account Succesful"
+}
+
+func main() {
+	// Enter to OS
+	/*  var choise, name, pass string
+	fmt.Println("----Enter to Gosys----")
+	fmt.Print("Select-> Login or Sign: ")
+	fmt.Scan(&choise)
+	if choise == "Login" {
+		fmt.Println("Open Login")
+	} else if choise == "Sign" {
+		fmt.Println("Open Sign")
+	} else {
+		fmt.Println("Undefine input determent!")
+		fmt.Println("For exit -> exit or quit")
+	}
+
+	fmt.Println("Input like... Name Password")
+	fmt.Print("Input:")
+	fmt.Scan(&name, &pass)
+	*/
+	CreateAccount("Oybekmd0", "1234")
+}
