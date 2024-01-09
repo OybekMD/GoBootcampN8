@@ -1,3 +1,5 @@
+sudo -i -u postgres
+psql
 CREATE DATABASE telegram;
 \c telegram
 CREATE TABLE users(
