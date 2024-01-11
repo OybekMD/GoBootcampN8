@@ -1,0 +1,4 @@
+https://metanit.com/go/tutorial/10.3.php
+
+go mod init
+go get github.com/lib/pq
