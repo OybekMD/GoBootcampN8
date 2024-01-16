@@ -2,8 +2,6 @@ https://dev.to/rainbowhat/postgresql-16-installation-on-ubuntu-2204-51ia
 
 
 
-
-
 Prerequisites
 Ubuntu 22.04
 Root privileges or sudo access
