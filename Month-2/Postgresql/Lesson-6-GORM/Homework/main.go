@@ -1,7 +1,7 @@
 package main
 
 import (
-	. "GoBootcampN8/Month-2/Postgresql/Lesson-6/Homework/Models"
+	. "GoBootcampN8/Month-2/Postgresql/Lesson-6-GORM/Homework/Models"
 	
 
 	pp "github.com/k0kubun/pp"
