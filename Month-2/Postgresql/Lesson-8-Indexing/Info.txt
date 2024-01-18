@@ -1,0 +1,35 @@
+0:41 Index is a datastructure we build and assign on top of an existing table then tries to analize and summarizes it can create
+    kind of shortcuts handbook or phone book which big
+    
+1:54 we call them btree lsmtree
+
+4:24
+GET TIME of select by id query 
+explain analyze select * from table_name where id = 10000;
+
+
+//BTREE -> binary tree 
+it searchs like binary search
+example of heap
+https://www.geeksforgeeks.org/heap-data-structure/
+
+if we gonna get only id BTREE work fast but if we wanna get name it'll work slower than id !!!
+check them under querys
+explain analyze select id from table_name where id = 10000;
+explain analyze select name from table_name where id = 10000;
+
+select the name which is a column in the table it's not the column is not in the index it's in the table it's the heap it's a 
+    different data structure
+
+~SECOND~
+if we use this query againg we get faster than last time since <CASHING>
+
+
+-----------
+SERACH BY NAME 
+if we search by name 
+it'll be realy slow which geting data from db
+explain analyze select id from table_name where name = 'Zs';
+maybe 3 second fron 11 millon data
+
+<12:00 Teach to us how to create index>
